@@ -10,7 +10,8 @@ class Carrinho{
 	}
 
 	public double calculaFrete(double a, double b){
-		return a * calculaPeso();
+		Produto p = null;
+		return a * calculaPeso(p);
 	}	
 
 	public double calculaPreço(Produto P){
