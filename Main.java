@@ -3,6 +3,8 @@ import java.util.*;
 class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		double dist;
+		final double FRETE = 20.0;
 		Carrinho c = new Carrinho();
 		Produto p = new Produto();
 		
@@ -29,8 +31,11 @@ class Main {
 		p.setPreço(sc.nextDouble());
 		c.adicionaProduto(p);
 		
-		System.out.println("Frete: " + c.calculaFrete(20.0, 2.0));
-		System.out.println("Preço total: " + c.preçototal(20.0, 2.0));
+		System.out.println("Qual a distância:");
+		dist = sc.nextDouble();
+		
+		System.out.println("Frete: " + c.calculaFrete(FRETE, dist));
+		System.out.println("Preço total: " + c.preçototal(FRETE, dist));
 		System.out.println("Peso total: " + c.calculaPeso(p));
 		
 	}
