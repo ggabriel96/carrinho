@@ -1,9 +1,9 @@
 class Carrinho{
-	ArrayList<Produto> prod = new ArrayList<Produto>;
+	ArrayList<Produto> prod = new ArrayList<Produto>();
 
 	public double calculaPeso(Produto P){
 		double peso = 0.0;
-		for(int i = 0; i < prod.length; i++) peso += prod[i].getPeso;
+		for(int i = 0; i < prod.size(); i++) peso += prod.get(i).getPeso();
 		return peso;
 	}
 
@@ -13,8 +13,25 @@ class Carrinho{
 
 	public double calculaPreço(Produto P){
 		double preço = 0.0;
-		for(int i = 0; i < prod.length; i++) preço += prod[i].getPreço;
+		for(int i = 0; i < prod.size(); i++) preço += prod.get(i).getPreço();
 		return preço;
 	}	
+
+	public Produto adicionaProduto(Produto p){
+		prod.add(p);
+		return p;
+	}
+	
+	public void removeProduto(Produto p){
+		prod.remove(Produto p);
+	}
+	
+	public double preçototal(double a, double b){
+		double resp = 0;
+		for(i = 0; i < prod.size(); i++){
+			resp += prod.get(i).getPreço();
+		}
+		return resp;
+	}
 	
 }
