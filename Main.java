@@ -3,40 +3,45 @@ import java.util.*;
 class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		double dist;
+		double dist, pesoAnt, preçoAnt;
+		final int QTD = 4;
 		final double FRETE = 20.0;
 		Carrinho c = new Carrinho();
-		Produto p = new Produto();
+		Produto p = null;
 		
-		System.out.println("Nome do produto 1:");
-		p.setNome(sc.nextLine());
-		
-		System.out.println("Peso do produto 1:");
-		p.setPeso(sc.nextDouble());
-		
-		System.out.println("Preço do produto 1:");
-		p.setPreço(sc.nextDouble());
-		sc.nextLine();
-		
-		c.adicionaProduto(p);
+		for (int i = 1; i <= QTD; i++) {
+			p = new Produto();
+			
+			System.out.println();
+			
+			System.out.println("Nome do produto " + i + ":");
+			p.setNome(sc.nextLine());
+			
+			System.out.println("Peso do produto " + i + ":");
+			p.setPeso(sc.nextDouble());
+			sc.nextLine();
+			
+			System.out.println("Preço do produto " + i + ":");
+			p.setPreço(sc.nextDouble());
+			sc.nextLine();
+			
+			c.adicionaProduto(p);
+		}
 		
 		System.out.println();
-		System.out.println("Nome do produto 2:");
-		p.setNome(sc.nextLine());
-		
-		System.out.println("Peso do produto 2:");
-		p.setPeso(sc.nextDouble());
-		
-		System.out.println("Preço do produto 2:");
-		p.setPreço(sc.nextDouble());
-		c.adicionaProduto(p);
-		
 		System.out.println("Qual a distância:");
 		dist = sc.nextDouble();
 		
 		System.out.println("Frete: " + c.calculaFrete(FRETE, dist));
-		System.out.println("Preço total: " + c.preçototal(FRETE, dist));
-		System.out.println("Peso total: " + c.calculaPeso(p));
+		pesoAnt = c.calculaPeso(p);
+		preçoAnt = c.preçototal(FRETE, dist);
 		
+		for (int i = 0; i < QTD; i++) {
+			c.removeProduto(c.prod.get(0));
+		}
+		
+		System.out.println();
+		System.out.println("Peso total: " + pesoAnt);
+		System.out.println("Preço total: " + preçoAnt);
 	}
 }

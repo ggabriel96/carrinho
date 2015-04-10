@@ -5,13 +5,16 @@ class Carrinho{
 
 	public double calculaPeso(Produto P){
 		double peso = 0.0;
-		for(int i = 0; i < prod.size(); i++) peso += prod.get(i).getPeso();
-		System.out.println(">>> " + peso);
+		for(int i = 0; i < prod.size(); i++) {
+			//System.out.println("peso: " + prod.get(i).getPeso());
+			peso += prod.get(i).getPeso();
+		}
 		return peso;
 	}
 
 	public double calculaFrete(double a, double b){
 		Produto p = null;
+		if (prod.size() < 1) return 0;
 		return (a * calculaPeso(p)) + (2 * b);
 	}	
 
@@ -36,7 +39,7 @@ class Carrinho{
 		for(i = 0; i < prod.size(); i++){
 			resp += prod.get(i).getPreço();
 		}
-		return resp + calculaFrete(a, 23.5);
+		return resp + calculaFrete(a, b);
 	}
 	
 }
